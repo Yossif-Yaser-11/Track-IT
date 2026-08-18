@@ -1,0 +1,265 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #1c1e21;
+    padding-bottom: 50px;
+}
+
+header {
+    background-color: #1877f2;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 18px;
+    color: #1877f2;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e4e6eb;
+    padding-bottom: 8px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.export-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.stats-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    background: #e4e6eb;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.stat-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.stat-done {
+    background: #d4edda;
+    color: #155724;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ccd0d5;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #1877f2;
+}
+
+.btn {
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #42b72a;
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #36a420;
+}
+
+.btn-secondary {
+    background-color: #1877f2;
+    color: white;
+}
+
+.btn-excel {
+    background-color: #107c41;
+    color: white;
+}
+
+.btn-excel:hover {
+    background-color: #0b5a2f;
+}
+
+.add-tech-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-tag {
+    background: #e7f3ff;
+    color: #1877f2;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tech-tag span.remove {
+    color: #ff4d4d;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* تنسيقات كروت الأعطال */
+.ticket-card {
+    background: #fff;
+    border: 1px solid #e4e6eb;
+    border-right: 6px solid #ffc107;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+}
+
+.ticket-card.resolved {
+    border-right-color: #28a745;
+    background-color: #f8fdf9;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.ticket-title {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.tech-name {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.time-badge {
+    background-color: #e9ecef;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #495057;
+}
+
+.duration-badge {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed #e4e6eb;
+}
+
+.check-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.check-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.btn-danger-sm {
+    background: none;
+    border: none;
+    color: #d93025;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: underline;
+    margin-right: auto;
+}

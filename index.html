@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سجل الدعم الفني اليومي - مستشفى الكهرباء</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- مكتبة XLSX لتصدير ملفات إكسيل حقيقية مباشرة من المتصفح -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>سجل الأعطال والدعم الفني اليومي</h1>
+        <br>
+        <p>مستشفى الكهرباء - إدارة الـ IT (توزيع المهام وتتبع الأوقات والتصدير)</p>
+    </header>
+
+    <div class="container">
+
+        <!-- قسم إدارة أطقم الدعم الفني -->
+        <section class="card">
+            <h2>فريق العمل (المسؤولين عن الدعم الفني)</h2>
+            <div class="add-tech-box">
+                <input type="text" id="newTechName" placeholder="اكتب اسم المسؤول عن الدعم الفني الجديد...">
+                <button type="button" class="btn btn-secondary" onclick="addTechnician()">إضافة مسؤول</button>
+            </div>
+            <div id="techList" class="tech-tags">
+                <!-- سيتم إدراج الأسماء هنا -->
+            </div>
+        </section>
+
+        <!-- قسم تسجيل العطل -->
+        <section class="card">
+            <h2>تسجيل عطل جديد</h2>
+            <form id="ticketForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>صاحب العطل (اسم الموظف / القسم):</label>
+                        <input type="text" id="employeeName" placeholder="مثال: د. أحمد - العيادات" required>
+                    </div>
+                    <div class="form-group">
+                        <label>المكان / الدور / الغرفة:</label>
+                        <input type="text" id="location" placeholder="مثال: الدور 2 - غرفة 205" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>نوع العطل:</label>
+                        <select id="issueType" required>
+                            <option value="">اختر النوع...</option>
+                            <option value="طابعة">طابعة / كمبيوتر</option>
+                            <option value="شبكة / سيرفر">شبكة / سيرفر</option>
+                            <option value="برامج / سيستم">برامج / سيستم المستشفى</option>
+                            <option value="أخرى">أخرى</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>توزيع المسؤول عن الدعم الفني:</label>
+                        <select id="assignType">
+                            <option value="auto">توزيع تلقائي (تعدية الدور)</option>
+                            <option value="manual">تحديد مسؤول يدويًا</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" id="manualTechGroup" style="display: none;">
+                    <label>اختر المسؤول عن الدعم الفني اللي رايح:</label>
+                    <select id="manualTechSelect">
+                        <!-- سيتم تعبئته تلقائياً -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>تفاصيل العطل:</label>
+                    <textarea id="description" rows="2" placeholder="شرح مختصر للعطل..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">تسجيل وتحويل العطل</button>
+            </form>
+        </section>
+
+        <!-- سجل الأعطال والتذاكر والفلترة بالتاريخ -->
+        <section class="card">
+            <div class="section-header">
+                <h2>السجل اليومي للأعطال والمهام</h2>
+                <div class="export-controls">
+                    <input type="date" id="filterDate" onchange="renderTickets()">
+                    <button onclick="exportToExcel()" class="btn btn-excel">📥 تحميل شيت إكسيل (اليوم)</button>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-box">الكل اليوم: <span id="statTotal">0</span></div>
+                <div class="stat-box stat-pending">قيد التنفيذ: <span id="statPending">0</span></div>
+                <div class="stat-box stat-done">تم الحل: <span id="statResolved">0</span></div>
+                <button onclick="clearAllData()" class="btn-danger-sm">مسح كل البيانات المخزنة</button>
+            </div>
+
+            <div id="ticketsList" class="tickets-container">
+                <!-- سيتم عرض الأعطال هنا -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
