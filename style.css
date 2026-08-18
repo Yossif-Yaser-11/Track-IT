@@ -15,9 +15,19 @@ header {
     background-color: #1877f2;
     color: white;
     text-align: center;
-    padding: 20px 10px;
+    padding: 20px 15px;
     margin-bottom: 25px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 22px;
+}
+
+header p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-top: 5px;
 }
 
 .container {
@@ -30,7 +40,7 @@ header {
     background: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
     margin-bottom: 20px;
 }
 
@@ -47,7 +57,7 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 15px;
 }
 
@@ -55,6 +65,8 @@ header {
     display: flex;
     gap: 10px;
     align-items: center;
+    flex-wrap: wrap;
+    width: auto;
 }
 
 .stats-row {
@@ -71,6 +83,8 @@ header {
     border-radius: 6px;
     font-size: 13px;
     font-weight: bold;
+    flex: 1 1 auto;
+    text-align: center;
 }
 
 .stat-pending {
@@ -102,10 +116,11 @@ label {
 
 input, select, textarea {
     width: 100%;
-    padding: 9px;
+    padding: 10px;
     border: 1px solid #ccd0d5;
     border-radius: 6px;
     font-size: 14px;
+    background-color: #fff;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -120,6 +135,7 @@ input:focus, select:focus, textarea:focus {
     font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .btn-primary {
@@ -135,6 +151,7 @@ input:focus, select:focus, textarea:focus {
 .btn-secondary {
     background-color: #1877f2;
     color: white;
+    white-space: nowrap;
 }
 
 .btn-excel {
@@ -174,6 +191,7 @@ input:focus, select:focus, textarea:focus {
     color: #ff4d4d;
     cursor: pointer;
     font-weight: bold;
+    padding: 0 4px;
 }
 
 /* تنسيقات كروت الأعطال */
@@ -197,6 +215,7 @@ input:focus, select:focus, textarea:focus {
     justify-content: space-between;
     margin-bottom: 8px;
     align-items: center;
+    gap: 8px;
 }
 
 .ticket-title {
@@ -211,11 +230,12 @@ input:focus, select:focus, textarea:focus {
     border-radius: 4px;
     font-weight: bold;
     font-size: 13px;
+    white-space: nowrap;
 }
 
 .time-badge {
     background-color: #e9ecef;
-    padding: 3px 8px;
+    padding: 4px 8px;
     border-radius: 4px;
     font-size: 12px;
     color: #495057;
@@ -224,7 +244,7 @@ input:focus, select:focus, textarea:focus {
 .duration-badge {
     background-color: #d1ecf1;
     color: #0c5460;
-    padding: 3px 8px;
+    padding: 4px 8px;
     border-radius: 4px;
     font-weight: bold;
     font-size: 12px;
@@ -262,4 +282,82 @@ input:focus, select:focus, textarea:focus {
     font-size: 12px;
     text-decoration: underline;
     margin-right: auto;
+}
+
+/* ==========================================
+   قواعد التجاوب والشاشات الصغيرة (Responsive)
+   ========================================== */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 18px;
+    }
+    
+    header p {
+        font-size: 12px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    /* تحويل الصفوف الرأسية للمدخلات إلى عمودية */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .add-tech-box {
+        flex-direction: column;
+    }
+
+    .add-tech-box .btn {
+        width: 100%;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .export-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .export-controls input[type="date"],
+    .export-controls .btn {
+        width: 100%;
+    }
+
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .btn-danger-sm {
+        grid-column: span 3;
+        text-align: center;
+        margin: 5px 0 0 0;
+    }
+
+    .ticket-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tech-name {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-danger-sm {
+        grid-column: span 1;
+    }
 }
